@@ -27,5 +27,5 @@ function closeLightbox() {
 
 /* BOOKING */
 function bookService(service) {
-  alert(`Booking request for ${service} Photography. Please contact us at contact@marveypixel.com or call +1-234-567-8900 to schedule your session.`);
+  alert(`Booking request for ${service} Photography. Please contact us at contact@marveypixel.com or call 08143212398 to schedule your session.`);
 }
