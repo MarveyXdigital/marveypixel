@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery | MarveyPixel</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+
+    <!-- Icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="logo">
+        <img src="Pictures/Logo.png" alt="MarveyPixel Logo" />
+        Marvey<span>Pixel</span>
+      </div>
+
+      <nav id="nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#services">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+      <div class="hamburger" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+    </header>
+
+    <!-- GALLERY SECTION -->
+    <section class="section">
+      <h2>Gallery</h2>
+      <p>Selected works across different photography styles.</p>
+
+      <!-- FILTER BUTTONS -->
+      <div class="filter-buttons">
+        <button onclick="filterImages('all')">All</button>
+        <button onclick="filterImages('portrait')">Portrait</button>
+        <button onclick="filterImages('wedding')">Wedding</button>
+        <button onclick="filterImages('events')">Events</button>
+      </div>
+
+      <!-- GALLERY -->
+      <div class="gallery">
+        <img
+          src="Pictures/portrait 1.jpg"
+          class="image portrait"
+          onclick="openLightbox(this)"
+        />
+        <img
+          src="Pictures/portrait 2.jpg"
+          class="image portrait"
+          onclick="openLightbox(this)"
+        />
+        <img
+          src="Pictures/portrait 3.jpg"
+          class="image portrait"
+          onclick="openLightbox(this)"
+        />
+        <img
+          src="Pictures/portrait 4.jpg"
+          class="image portrait"
+          onclick="openLightbox(this)"
+        />
+        <img
+          src="Pictures/portrait 5.jpg"
+          class="image portrait"
+          onclick="openLightbox(this)"
+        />
+        <img
+          src="Pictures/wedding 1.jpg"
+          class="image wedding"
+          onclick="openLightbox(this)"
+        />
+        <img
+          src="Pictures/wedding 2.jpg"
+          class="image wedding"
+          onclick="openLightbox(this)"
+        />
+        <img
+          src="Pictures/wedding 3.JPG"
+          class="image wedding"
+          onclick="openLightbox(this)"
+        />
+        <img
+          src="Pictures/wedding 4.jpg"
+          class="image wedding"
+          onclick="openLightbox(this)"
+        />
+        <img
+          src="Pictures/wedding 5.jpg"
+          class="image wedding"
+          onclick="openLightbox(this)"
+        />
+        <img
+          src="Pictures/event 1.jpg"
+          class="image events"
+          onclick="openLightbox(this)"
+        />
+        <img
+          src="Pictures/event 2.jpg"
+          class="image events"
+          onclick="openLightbox(this)"
+        />
+        <img
+          src="Pictures/event 3.jpg"
+          class="image events"
+          onclick="openLightbox(this)"
+        />
+        <img
+          src="Pictures/event 4.jpg"
+          class="image events"
+          onclick="openLightbox(this)"
+        />
+        <img
+          src="Pictures/event 5.jpg"
+          class="image events"
+          onclick="openLightbox(this)"
+        />
+      </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox">
+      <span onclick="closeLightbox()">×</span>
+      <img id="lightbox-img" />
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>© 2026 MarveyPixel. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>
