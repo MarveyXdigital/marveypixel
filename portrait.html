@@ -2,8 +2,39 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Professional portrait photography by MarveyPixel. Headshots, family portraits, and personal branding photography in Lagos, Nigeria."
+    />
+    <meta
+      name="keywords"
+      content="portrait photography, headshots, family portraits, professional photography, Lagos photographer, MarveyPixel portraits"
+    />
+    <meta name="author" content="MarveyPixel" />
     <title>Portrait Photography | MarveyPixel</title>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicon-16x16.png"
+    />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+
     <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
@@ -13,30 +44,116 @@
         Marvey<span>Pixel</span>
       </div>
 
-      <nav>
+      <nav id="nav">
         <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
         <a href="index.html#services">Services</a>
         <a href="gallery.html">Gallery</a>
         <a href="index.html#contact">Contact</a>
       </nav>
+
+      <div class="hamburger" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
     </header>
 
     <section class="section">
       <h2>Portrait Photography</h2>
       <p>
         Professional portrait photography for individuals, creatives, brands,
-        and lifestyle storytelling.
+        and lifestyle storytelling. From headshots to artistic portraits, we
+        capture your unique personality and essence.
+      </p>
+      <p>
+        Our portrait sessions are tailored to your needs, whether it's for
+        personal branding, family memories, or professional headshots. We work
+        in studio or on location to create stunning images that tell your story.
       </p>
 
       <div class="gallery">
-        <img src="images/portrait 1.jpg" />
-        <img src="images/portrait 2.jpg" />
-        <img src="images/portrait 3.jpg" />
+        <img src="images/portrait 1.jpg" onclick="openLightbox(this)" />
+        <img src="images/portrait 2.jpg" onclick="openLightbox(this)" />
+        <img src="images/portrait 3.jpg" onclick="openLightbox(this)" />
+        <img src="images/portrait 4.jpg" onclick="openLightbox(this)" />
+        <img src="images/portrait 5.jpg" onclick="openLightbox(this)" />
+        <img src="images/portrait 6.jpg" onclick="openLightbox(this)" />
+        <img src="images/portrait 7.jpg" onclick="openLightbox(this)" />
+        <img src="images/portrait 8.jpg" onclick="openLightbox(this)" />
+      </div>
+
+      <div
+        class="service-buttons"
+        style="justify-content: center; margin-top: 40px"
+      >
+        <a href="gallery.html">View Full Gallery</a>
+        <button onclick="bookService('Portrait')">Book Portrait Session</button>
       </div>
     </section>
 
+    <!-- LIGHTBOX -->
+    <div id="lightbox">
+      <span onclick="closeLightbox()">×</span>
+      <img id="lightbox-img" />
+    </div>
+
     <footer>
-      <p>© 2026 MarveyPixel. All Rights Reserved.</p>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>MarveyPixel</h3>
+          <p>
+            Professional photography services specializing in portraits,
+            weddings, events, and creative direction.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="portrait.html">Portrait Photography</a></li>
+            <li><a href="wedding.html">Wedding Photography</a></li>
+            <li><a href="events.html">Event Coverage</a></li>
+            <li><a href="creative.html">Creative Direction</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Stay Updated</h3>
+          <p>
+            Subscribe to our newsletter for photography tips and exclusive
+            offers.
+          </p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email address" required />
+            <button type="submit">Subscribe</button>
+          </form>
+          <div class="footer-icons">
+            <a
+              href="https://www.instagram.com/marveypixel_/"
+              aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://facebook.com/marveypixel" aria-label="Facebook"
+              ><i class="fab fa-facebook"></i
+            ></a>
+            <a href="https://twitter.com/marveyboy01" aria-label="Twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 MarveyPixel. All Rights Reserved.</p>
+      </div>
     </footer>
   </body>
 </html>
+
+
