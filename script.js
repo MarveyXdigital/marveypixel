@@ -27,5 +27,21 @@ function closeLightbox() {
 
 /* BOOKING */
 function bookService(service) {
-  alert(`Booking request for ${service} Photography. Please contact us at contact@marveypixel.com or call 08143212398 to schedule your session.`);
+  alert(`Booking request for ${service} Photography. Please contact us at marveypixel@gmail.com or call +2348143212398 to schedule your session.`);
 }
+
+/* NEWSLETTER */
+function subscribeNewsletter(event) {
+  event.preventDefault();
+  const email = event.target.querySelector('input[type="email"]').value;
+  alert(`Thank you for subscribing! We'll send photography tips and updates to ${email}.`);
+  event.target.reset();
+}
+
+// Add event listeners for newsletter forms
+document.addEventListener('DOMContentLoaded', function() {
+  const newsletterForms = document.querySelectorAll('.newsletter-form');
+  newsletterForms.forEach(form => {
+    form.addEventListener('submit', subscribeNewsletter);
+  });
+});
