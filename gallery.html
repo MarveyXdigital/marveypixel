@@ -3,7 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Explore MarveyPixel's photography portfolio featuring portraits, weddings, events, and creative work. View our professional photography gallery."
+    />
+    <meta
+      name="keywords"
+      content="photography portfolio, wedding photos, portrait gallery, event photography, creative photography, MarveyPixel gallery"
+    />
+    <meta name="author" content="MarveyPixel" />
     <title>Gallery | MarveyPixel</title>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicon-16x16.png"
+    />
+    <link rel="shortcut icon" href="images/favicon.ico" />
 
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
@@ -47,83 +71,153 @@
         <button onclick="filterImages('portrait')">Portrait</button>
         <button onclick="filterImages('wedding')">Wedding</button>
         <button onclick="filterImages('events')">Events</button>
+        <button onclick="filterImages('creative')">Creative</button>
       </div>
 
       <!-- GALLERY -->
       <div class="gallery">
         <img
           src="images/portrait 1.jpg"
+          loading="lazy"
           class="image portrait"
           onclick="openLightbox(this)"
         />
         <img
           src="images/portrait 2.jpg"
+          loading="lazy"
           class="image portrait"
           onclick="openLightbox(this)"
         />
         <img
           src="images/portrait 3.jpg"
+          loading="lazy"
           class="image portrait"
           onclick="openLightbox(this)"
         />
         <img
           src="images/portrait 4.jpg"
+          loading="lazy"
           class="image portrait"
           onclick="openLightbox(this)"
         />
         <img
           src="images/portrait 5.jpg"
+          loading="lazy"
+          class="image portrait"
+          onclick="openLightbox(this)"
+        />
+        <img
+          src="images/portrait 8.jpg"
+          loading="lazy"
           class="image portrait"
           onclick="openLightbox(this)"
         />
         <img
           src="images/wedding 1.jpg"
+          loading="lazy"
+          class="image wedding"
+          onclick="openLightbox(this)"
+        />
+        <img
+          src="images/wedding 3.jpg"
+          loading="lazy"
+          class="image wedding"
+          onclick="openLightbox(this)"
+        />
+        <img
+          src="images/wedding 4.JPG"
+          loading="lazy"
           class="image wedding"
           onclick="openLightbox(this)"
         />
         <img
           src="images/wedding 2.jpg"
-          class="image wedding"
-          onclick="openLightbox(this)"
-        />
-        <img
-          src="images/wedding 3.JPG"
-          class="image wedding"
-          onclick="openLightbox(this)"
-        />
-        <img
-          src="images/wedding 4.jpg"
+          loading="lazy"
           class="image wedding"
           onclick="openLightbox(this)"
         />
         <img
           src="images/wedding 5.jpg"
+          loading="lazy"
+          class="image wedding"
+          onclick="openLightbox(this)"
+        />
+        <img
+          src="images/wedding 7.jpg"
+          loading="lazy"
           class="image wedding"
           onclick="openLightbox(this)"
         />
         <img
           src="images/event 1.jpg"
+          loading="lazy"
           class="image events"
           onclick="openLightbox(this)"
         />
         <img
-          src="images/event 2.jpg"
+          src="images/event 6.jpg"
+          loading="lazy"
           class="image events"
           onclick="openLightbox(this)"
         />
         <img
           src="images/event 3.jpg"
+          loading="lazy"
           class="image events"
           onclick="openLightbox(this)"
         />
         <img
-          src="images/event 4.jpg"
+          src="images/event 8.jpg"
+          loading="lazy"
           class="image events"
           onclick="openLightbox(this)"
         />
         <img
           src="images/event 5.jpg"
+          loading="lazy"
           class="image events"
+          onclick="openLightbox(this)"
+        />
+        <img
+          src="images/event 9.jpg"
+          loading="lazy"
+          class="image events"
+          onclick="openLightbox(this)"
+        />
+        <img
+          src="images/creative 6.jpg"
+          loading="lazy"
+          class="image creative"
+          onclick="openLightbox(this)"
+        />
+        <img
+          src="images/creative 4.jpg"
+          loading="lazy"
+          class="image creative"
+          onclick="openLightbox(this)"
+        />
+        <img
+          src="images/creative 5.jpg"
+          loading="lazy"
+          class="image creative"
+          onclick="openLightbox(this)"
+        />
+        <img
+          src="images/creative 7.jpg"
+          loading="lazy"
+          class="image creative"
+          onclick="openLightbox(this)"
+        />
+        <img
+          src="images/creative 8.jpg"
+          loading="lazy"
+          class="image creative"
+          onclick="openLightbox(this)"
+        />
+        <img
+          src="images/creative 9.jpg"
+          loading="lazy"
+          class="image creative"
           onclick="openLightbox(this)"
         />
       </div>
@@ -137,7 +231,61 @@
 
     <!-- FOOTER -->
     <footer>
-      <p>© 2026 MarveyPixel. All Rights Reserved.</p>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>MarveyPixel</h3>
+          <p>
+            Professional photography services specializing in portraits,
+            weddings, events, and creative direction.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="portrait.html">Portrait Photography</a></li>
+            <li><a href="wedding.html">Wedding Photography</a></li>
+            <li><a href="events.html">Event Coverage</a></li>
+            <li><a href="creative.html">Creative Direction</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Stay Updated</h3>
+          <p>
+            Subscribe to our newsletter for photography tips and exclusive
+            offers.
+          </p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email address" required />
+            <button type="submit">Subscribe</button>
+          </form>
+          <div class="footer-icons">
+            <a
+              href="https://www.instagram.com/marveypixel_/"
+              aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://facebook.com/marveypixel" aria-label="Facebook"
+              ><i class="fab fa-facebook"></i
+            ></a>
+            <a href="https://twitter.com/marveyboy01" aria-label="Twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 MarveyPixel. All Rights Reserved.</p>
+      </div>
     </footer>
   </body>
 </html>
