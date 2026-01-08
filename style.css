@@ -5,9 +5,18 @@
     font-family: "Century Gothic", Century-Gothic;
 }
 
+/* Overall background */
 body {
-    background: white;
+  background-color: #000000; /* Black */
+  color: #ffffff; /* White text for contrast */
+  font-family: Arial, sans-serif;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
     color: black;
+    font-size: 15px;
 }
 
 /* HEADER */
@@ -32,20 +41,16 @@ header {
 }
 
 .logo span {
-    color: navy;
+    color: #90EE90;
 }
 
-nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: black;
-    font-size: 15px;
+#nav a {
+  color: #e6e6ff; /* Navy blue */
+  text-decoration: none;
 }
 
-.hamburger {
-    display: none;
-    font-size: 22px;
-    cursor: pointer;
+#nav a:hover {
+  color: #87CEEB; /* Sky blue */
 }
 
 /* HERO */
@@ -60,6 +65,7 @@ nav a {
     background-size: cover;
     background-position: center;
     color: white;
+    background-color: #00008B; /* Deep blue */
 }
 
 .hero h1 {
@@ -74,11 +80,14 @@ nav a {
 /* SECTIONS */
 .section {
     padding: 80px 10%;
+    background-color: #000000; /* Black */
+    color: #ffffff;
 }
 
 .section h2 {
     margin-bottom: 20px;
     font-size: 32px;
+    color: #90EE90; /* Light green */
 }
 
 /* PHOTO GRID */
@@ -597,15 +606,12 @@ nav a {
 }
 
 .read-more {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
+  color: #007bff; /* Or match your blue theme */
+  text-decoration: none;
 }
 
 .read-more:hover {
-    color: #0056b3;
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 /* CONTACT FORM */
@@ -737,8 +743,8 @@ nav a {
 
 /* FOOTER */
 footer {
-    background: #333;
-    color: white;
+    background-color: #001123; /* Deep blue */
+    color: #ffffff;
     padding: 40px 20px 20px;
 }
 
@@ -751,7 +757,7 @@ footer {
 }
 
 .footer-section h3 {
-    color: #fff;
+    color: #90EE90; /* Light green */
     margin-bottom: 15px;
     font-size: 18px;
 }
@@ -868,6 +874,32 @@ footer {
         height: 30px;
     }
 
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+    }
+
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background: #000;
+        transition: all 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(10px, 10px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+
     nav {
         position: absolute;
         top: 60px;
@@ -879,13 +911,14 @@ footer {
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
+    nav.active {
+        display: flex;
+    }
+
     nav a {
         padding: 15px;
         border-bottom: 1px solid #eee;
-    }
-
-    .hamburger {
-        display: block;
+        color: black;
     }
 
     .hero {
@@ -1024,5 +1057,60 @@ footer {
 
     .stats {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Hide hamburger on desktop */
+.hamburger {
+    display: none;
+}
+
+/* Floating contact buttons (right side) */
+.floating-contact {
+    position: fixed;
+    right: 20px;
+    bottom: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 9999;
+}
+
+.floating-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.floating-btn:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.28);
+}
+
+.floating-btn.whatsapp {
+    background: linear-gradient(135deg, #25D366 0%, #1DA851 100%);
+}
+
+.floating-btn.telegram {
+    background: linear-gradient(135deg, #0088cc 0%, #006db3 100%);
+}
+
+/* Slightly smaller & repositioned on small screens */
+@media (max-width: 480px) {
+    .floating-contact {
+        right: 12px;
+        bottom: 90px;
+    }
+
+    .floating-btn {
+        width: 52px;
+        height: 52px;
     }
 }
