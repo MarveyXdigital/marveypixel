@@ -45,3 +45,32 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', subscribeNewsletter);
   });
 });
+
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('#nav');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    nav.classList.toggle('active');
+});
+
+// Function to toggle read more/less
+document.addEventListener('DOMContentLoaded', () => {
+  const readMoreButtons = document.querySelectorAll('.read-more');
+
+  readMoreButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      const postId = button.getAttribute('data-post');
+      const fullContent = document.querySelector(`[data-post="${postId}"]`).previousElementSibling; // Targets .full-content
+
+      if (fullContent.style.display === 'none') {
+        fullContent.style.display = 'block';
+        button.textContent = 'Read Less';
+      } else {
+        fullContent.style.display = 'none';
+        button.textContent = 'Read More';
+      }
+    });
+  });
+});
