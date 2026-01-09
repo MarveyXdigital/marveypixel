@@ -1004,10 +1004,6 @@ footer {
         color: var(--text-color);
     }
 
-    .theme-toggle {
-        display: none;
-    }
-
     .hero {
         height: 60vh;
         padding: 20px;
@@ -1027,10 +1023,6 @@ footer {
 
     .section h2 {
         font-size: 24px;
-    }
-
-    .theme-toggle {
-        display: none;
     }
 
     .gallery-page .section {
@@ -1215,4 +1207,3 @@ footer {
         height: 52px;
     }
 }
-
