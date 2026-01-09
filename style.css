@@ -947,21 +947,42 @@ footer {
 @media (max-width: 768px) {
     header {
         padding: 15px 20px;
+        justify-content: flex-start;
+        gap: 10px;
+        align-items: center;
     }
 
     .logo {
         font-size: 20px;
+        flex: 1 1 auto;
+        display: flex;
+        align-items: center;
+        gap: 10px;
     }
 
     .logo img {
         height: 30px;
     }
 
+    /* Ensure theme toggle is visible and sits to the right */
+    .theme-toggle {
+        display: flex !important;
+        order: 3;
+        z-index: 200;
+        padding: 6px;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+    }
+
+    /* Hamburger should appear before the theme toggle */
     .hamburger {
         display: flex !important;
         flex-direction: column;
         cursor: pointer;
         gap: 5px;
+        order: 2;
+        z-index: 200;
     }
 
     .hamburger span {
@@ -992,6 +1013,7 @@ footer {
         flex-direction: column;
         width: 200px;
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        z-index: 180;
     }
 
     nav.active {
