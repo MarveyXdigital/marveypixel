@@ -927,6 +927,22 @@ footer {
     background: #0056b3;
 }
 
+/* Default hamburger styles for all screens */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 100;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--hamburger-bg);
+    transition: all 0.3s ease;
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
     header {
@@ -942,7 +958,7 @@ footer {
     }
 
     .hamburger {
-        display: flex;
+        display: flex !important;
         flex-direction: column;
         cursor: pointer;
         gap: 5px;
@@ -1144,8 +1160,10 @@ footer {
 }
 
 /* Hide hamburger on desktop */
-.hamburger {
-    display: none;
+@media (min-width: 769px) {
+    .hamburger {
+        display: none !important;
+    }
 }
 
 /* Floating contact buttons (right side) */
@@ -1197,3 +1215,4 @@ footer {
         height: 52px;
     }
 }
+
