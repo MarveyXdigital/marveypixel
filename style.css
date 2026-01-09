@@ -5,11 +5,40 @@
     font-family: "Century Gothic", Century-Gothic;
 }
 
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --section-bg: #ffffff;
+    --nav-link-color: #000000;
+    --nav-link-hover: #007bff;
+    --header-border: #eee;
+    --hamburger-bg: #000;
+    --service-bg: #ffffff;
+    --service-text: #333333;
+    --service-p: #666666;
+    --testimonial-bg: #f8f9fa;
+    --testimonial-p: #555555;
+}
+
+body.dark {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --section-bg: #000000;
+    --nav-link-color: #e6e6ff;
+    --nav-link-hover: #87CEEB;
+    --header-border: #333;
+    --hamburger-bg: #fff;
+    --service-bg: #333333;
+    --service-text: #ffffff;
+    --service-p: #cccccc;
+    --testimonial-bg: #333333;
+    --testimonial-p: #cccccc;
+}
+
 /* Overall background */
 body {
-  background-color: #000000; /* Black */
-  color: #ffffff; /* White text for contrast */
-  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 nav a {
@@ -25,7 +54,22 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--header-border);
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+.theme-toggle:hover {
+    background: rgba(0,0,0,0.1);
 }
 
 .logo {
@@ -45,12 +89,12 @@ header {
 }
 
 #nav a {
-  color: #e6e6ff; /* Navy blue */
+  color: var(--nav-link-color);
   text-decoration: none;
 }
 
 #nav a:hover {
-  color: #87CEEB; /* Sky blue */
+  color: var(--nav-link-hover);
 }
 
 /* HERO */
@@ -80,8 +124,8 @@ header {
 /* SECTIONS */
 .section {
     padding: 80px 10%;
-    background-color: #000000; /* Black */
-    color: #ffffff;
+    background-color: var(--section-bg);
+    color: var(--text-color);
 }
 
 .section h2 {
@@ -123,7 +167,7 @@ header {
 }
 
 .service-item {
-    background: white;
+    background: var(--service-bg);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -132,12 +176,12 @@ header {
 
 .service-item h3 {
     margin-bottom: 10px;
-    color: #333;
+    color: var(--service-text);
 }
 
 .service-item p {
     margin-bottom: 15px;
-    color: #666;
+    color: var(--service-p);
     font-size: 14px;
 }
 
@@ -185,7 +229,7 @@ header {
 }
 
 .testimonial {
-    background: #f8f9fa;
+    background: var(--testimonial-bg);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -195,12 +239,12 @@ header {
 .testimonial p {
     font-style: italic;
     margin-bottom: 10px;
-    color: #555;
+    color: var(--testimonial-p);
 }
 
 .testimonial cite {
     font-weight: bold;
-    color: #333;
+    color: var(--service-text);
 }
 
 /* PRICING */
@@ -691,26 +735,49 @@ header {
     object-fit: cover;
 }
 
+/* Gallery page specific styles */
+.gallery-page .section {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-page .section h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.gallery-page .section > p {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 18px;
+    color: var(--text-color);
+}
+
 /* FILTER BUTTONS */
 .filter-buttons {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .filter-buttons button {
-    padding: 10px 20px;
-    background: #007bff;
+    padding: 12px 24px;
+    background: var(--nav-link-hover);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
     font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
 .filter-buttons button:hover {
-    background: #0056b3;
+    background: var(--nav-link-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 /* LIGHTBOX */
@@ -884,7 +951,7 @@ footer {
     .hamburger span {
         width: 25px;
         height: 3px;
-        background: #000;
+        background: var(--hamburger-bg);
         transition: all 0.3s ease;
     }
 
@@ -904,7 +971,7 @@ footer {
         position: absolute;
         top: 60px;
         right: 0;
-        background: white;
+        background: var(--bg-color);
         display: none;
         flex-direction: column;
         width: 200px;
@@ -917,8 +984,12 @@ footer {
 
     nav a {
         padding: 15px;
-        border-bottom: 1px solid #eee;
-        color: black;
+        border-bottom: 1px solid var(--header-border);
+        color: var(--text-color);
+    }
+
+    .theme-toggle {
+        display: none;
     }
 
     .hero {
@@ -942,14 +1013,26 @@ footer {
         font-size: 24px;
     }
 
-    .photo-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 15px;
+    .theme-toggle {
+        display: none;
     }
 
-    .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 10px;
+    .gallery-page .section {
+        max-width: 100%;
+    }
+
+    .gallery-page .section > p {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .filter-buttons {
+        gap: 8px;
+    }
+
+    .filter-buttons button {
+        padding: 10px 16px;
+        font-size: 14px;
     }
 
     .services {
