@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Private client gallery - Access your high-resolution photos from MarveyPixel photography sessions." />
+    <meta name="author" content="MarveyPixel" />
+    <title>Client Gallery | MarveyPixel</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <!-- Load client gallery data before main script -->
+    <script src="client-galleries.js"></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="logo">
+        <img src="images/Logo-Blue.png" alt="MarveyPixel Logo" />
+        MarveyPixel</span>
+      </div>
+      <nav id="nav" class="desktop-nav">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="blog.html">Blog</a>
+        <a href="design.html">Design</a>
+      </nav>
+      <div class="header-actions">
+        <a href="home.html#contact" class="header-contact-btn">
+          <i class="fas fa-envelope"></i> Contact
+        </a>
+        <button id="theme-toggle" class="theme-toggle">
+          <i class="fas fa-moon"></i>
+        </button>
+        <div class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- FULLSCREEN MOBILE NAV -->
+    <div id="mobile-nav" class="mobile-nav">
+      <div class="mobile-nav-content">
+        <div class="mobile-nav-links">
+          <a href="home.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="blog.html">Blog</a>
+          <a href="design.html">Design</a>
+          <a href="booking.html">Book Session</a>
+          <a href="client-gallery.html">Client Gallery</a>
+        </div>
+        <a href="home.html#contact" class="mobile-contact-btn">
+          <i class="fas fa-envelope"></i> Get in Touch
+        </a>
+      </div>
+    </div>
+
+    <!-- PASSWORD GATE -->
+    <div id="client-gate" class="client-gate animate-section">
+      <div class="gate-card">
+        <div class="gate-icon"><i class="fas fa-lock"></i></div>
+        <h2>Client Gallery</h2>
+        <p>This gallery is password-protected. Enter the access code provided to you by MarveyPixel.</p>
+        <form id="gate-form" class="gate-form">
+          <div class="gate-input-group">
+            <input type="password" id="gallery-password" placeholder="Enter access code" required />
+            <button type="button" class="gate-toggle" onclick="toggleGatePassword()">
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+          <div id="gate-error" class="gate-error" style="display:none">
+            <i class="fas fa-exclamation-circle"></i> Invalid access code. Please try again.
+          </div>
+          <button type="submit" class="gate-submit-btn">
+            <i class="fas fa-unlock"></i> Access Gallery
+          </button>
+        </form>
+        <p class="gate-hint">Don't have a code? <a href="https://wa.me/2348143212398?text=Hi%20Marvey%2C%20I%20need%20an%20access%20code%20for%20my%20client%20gallery">Contact us</a> to get one.</p>
+      </div>
+    </div>
+
+    <!-- CLIENT GALLERY (dynamically populated) -->
+    <div id="client-gallery-section" class="section client-gallery-section" style="display:none">
+      <!-- Client Welcome Banner -->
+      <div id="client-welcome-banner" class="client-welcome-banner">
+        <div class="client-welcome-content">
+          <div class="client-welcome-icon"><i class="fas fa-camera-retro"></i></div>
+          <h2 id="client-name">Welcome!</h2>
+          <div class="client-session-meta">
+            <span id="client-session-type" class="client-badge"><i class="fas fa-tag"></i> Session</span>
+            <span id="client-session-date" class="client-badge"><i class="fas fa-calendar"></i> Date</span>
+            <span id="client-photo-count" class="client-badge"><i class="fas fa-images"></i> 0 Photos</span>
+          </div>
+          <p id="client-message" class="client-welcome-message"></p>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <h2>Your Photos</h2>
+        <div class="section-divider"></div>
+        <p class="section-subtitle">Select photos to download in high resolution</p>
+      </div>
+
+      <div class="client-gallery-actions">
+        <button id="select-all-btn" class="cg-action-btn" onclick="toggleSelectAll()">
+          <i class="fas fa-check-double"></i> Select All
+        </button>
+        <button id="download-selected-btn" class="cg-action-btn cg-download-btn" onclick="downloadSelected()" disabled>
+          <i class="fas fa-download"></i> Download Selected (<span id="selected-count">0</span>)
+        </button>
+        <button class="cg-action-btn cg-logout-btn" onclick="lockGallery()">
+          <i class="fas fa-sign-out-alt"></i> Lock Gallery
+        </button>
+      </div>
+
+      <!-- Dynamic gallery grid — populated by JavaScript -->
+      <div class="client-gallery-grid" id="client-gallery-grid"></div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" onclick="closeLightbox()">
+      <span>&times;</span>
+      <img id="lightbox-img" src="" alt="Lightbox Image" />
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Client Portal</h3>
+          <ul>
+            <li><a href="booking.html">Book a Session</a></li>
+            <li><a href="client-gallery.html">Client Gallery</a></li>
+            <li><a href="invoice.html">Invoice Generator</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Stay Updated</h3>
+          <p>Subscribe to our newsletter for photography tips.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email address" required />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 MarveyPixel. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

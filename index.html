@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Welcome to MarveyPixel - Professional Photography Services"
+    />
+    <title>MarveyPixel | Welcome</title>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicon-16x16.png"
+    />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="welcome.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="welcome-body">
+    <!-- Floating Particles Background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Welcome Screen -->
+    <div class="welcome-container" id="welcomeScreen">
+      <!-- Top Greeting -->
+      <div class="welcome-greeting">
+        <span class="greeting-line"></span>
+        <p class="greeting-text">You are Welcome</p>
+        <span class="greeting-line"></span>
+      </div>
+
+      <!-- Logo Section -->
+      <div class="welcome-logo-section">
+        <div class="logo-frame">
+          <img
+            src="images/Logo-Blue.png"
+            alt="MarveyPixel Logo"
+            class="welcome-logo"
+            onerror="
+              this.style.display = 'none';
+              this.parentElement.querySelector('.logo-fallback').style.display =
+                'flex';
+            "
+          />
+          <!-- Fallback if logo image is not found -->
+          <div class="logo-fallback" style="display: none">
+            <i class="fas fa-camera"></i>
+          </div>
+        </div>
+        <div class="logo-glow"></div>
+      </div>
+
+      <!-- Brand Name -->
+      <div class="welcome-brand">
+        <h1 class="brand-name">
+          <span class="brand-marvey">Marvey</span>
+          <span class="brand-pixel">Pixel</span>
+        </h1>
+        <div class="brand-tagline">
+          <span class="tagline-dash"></span>
+          <p>Capturing Moments, Creating Memories</p>
+          <span class="tagline-dash"></span>
+        </div>
+      </div>
+
+      <!-- CTA Button -->
+      <div class="welcome-cta">
+        <a href="home.html" class="enter-btn">
+          <span>Enter Website</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- Social Links -->
+      <div class="welcome-social">
+        <a
+          href="https://instagram.com/marveypixel_"
+          target="_blank"
+          rel="noopener"
+          aria-label="Instagram"
+        >
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a
+          href="https://facebook.com/marveypixel"
+          target="_blank"
+          rel="noopener"
+          aria-label="Facebook"
+        >
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a
+          href="https://twitter.com/marveyboy01"
+          target="_blank"
+          rel="noopener"
+          aria-label="Twitter"
+        >
+          <i class="fab fa-twitter"></i>
+        </a>
+      </div>
+    </div>
+
+    <script>
+      // Create floating particles
+      (function () {
+        const container = document.getElementById("particles");
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement("div");
+          particle.classList.add("particle");
+
+          const size = Math.random() * 4 + 1;
+          particle.style.width = size + "px";
+          particle.style.height = size + "px";
+          particle.style.left = Math.random() * 100 + "%";
+          particle.style.top = Math.random() * 100 + "%";
+          particle.style.animationDelay = Math.random() * 6 + "s";
+          particle.style.animationDuration = Math.random() * 4 + 4 + "s";
+
+          container.appendChild(particle);
+        }
+      })();
+    </script>
+  </body>
+</html>
