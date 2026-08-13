@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Generate professional invoices for photography sessions with MarveyPixel." />
+    <meta name="author" content="MarveyPixel" />
+    <title>Invoice Generator | MarveyPixel</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Stack+Sans+Text:wght@200..700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="logo">
+        <img src="images/Logo-Blue.png" alt="MarveyPixel Logo" />
+        MarveyPixel</span>
+      </div>
+      <nav id="nav" class="desktop-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="blog.html">Blog</a>
+        <a href="design.html">Design</a>
+      </nav>
+      <div class="header-actions">
+        <a href="index.html#contact" class="header-contact-btn">
+          <i class="fas fa-envelope"></i> Contact
+        </a>
+        <button id="theme-toggle" class="theme-toggle">
+          <i class="fas fa-moon"></i>
+        </button>
+        <div class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- FULLSCREEN MOBILE NAV -->
+    <div id="mobile-nav" class="mobile-nav">
+      <div class="mobile-nav-content">
+        <div class="mobile-nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="blog.html">Blog</a>
+          <a href="design.html">Design</a>
+          <a href="booking.html">Book Session</a>
+          <a href="client-gallery.html">Client Gallery</a>
+        </div>
+        <a href="index.html#contact" class="mobile-contact-btn">
+          <i class="fas fa-envelope"></i> Get in Touch
+        </a>
+      </div>
+    </div>
+
+    <section class="section invoice-section animate-section">
+      <div class="section-header">
+        <h2>Invoice Generator</h2>
+        <div class="section-divider"></div>
+        <p class="section-subtitle">Create a professional invoice for your completed photography session</p>
+      </div>
+
+      <div class="invoice-container">
+        <!-- Invoice Form -->
+        <div class="invoice-form-card">
+          <h3><i class="fas fa-file-invoice"></i> Invoice Details</h3>
+          <form id="invoice-form">
+            <div class="invoice-field-group">
+              <h4>Client Information</h4>
+              <div class="invoice-field">
+                <label>Client Name</label>
+                <input type="text" id="inv-client-name" placeholder="Client's full name" required />
+              </div>
+              <div class="invoice-field">
+                <label>Client Email</label>
+                <input type="email" id="inv-client-email" placeholder="client@email.com" required />
+              </div>
+              <div class="invoice-field">
+                <label>Client Phone</label>
+                <input type="tel" id="inv-client-phone" placeholder="Phone number" />
+              </div>
+            </div>
+
+            <div class="invoice-field-group">
+              <h4>Session Details</h4>
+              <div class="invoice-field">
+                <label>Invoice Number</label>
+                <input type="text" id="inv-number" readonly />
+              </div>
+              <div class="invoice-field">
+                <label>Session Date</label>
+                <input type="date" id="inv-session-date" required />
+              </div>
+              <div class="invoice-field">
+                <label>Service Type</label>
+                <select id="inv-service" required>
+                  <option value="">Select service</option>
+                  <option value="Portrait Photography">Portrait Photography</option>
+                  <option value="Wedding Photography">Wedding Photography</option>
+                  <option value="Event Coverage">Event Coverage</option>
+                  <option value="Creative Direction">Creative Direction</option>
+                  <option value="Graphic Design">Graphic Design</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="invoice-field-group">
+              <h4>Line Items</h4>
+              <div id="invoice-items">
+                <div class="invoice-item-row">
+                  <input type="text" placeholder="Item description" class="item-desc" value="Photography Session" required />
+                  <input type="number" placeholder="Qty" class="item-qty" value="1" min="1" required />
+                  <input type="number" placeholder="Price" class="item-price" value="0" min="0" step="0.01" required />
+                  <button type="button" class="remove-item-btn" onclick="removeInvoiceItem(this)" style="display:none"><i class="fas fa-times"></i></button>
+                </div>
+              </div>
+              <button type="button" class="add-item-btn" onclick="addInvoiceItem()">
+                <i class="fas fa-plus"></i> Add Item
+              </button>
+            </div>
+
+            <div class="invoice-field">
+              <label>Notes</label>
+              <textarea id="inv-notes" rows="2" placeholder="Payment terms, thank you note, etc."></textarea>
+            </div>
+
+            <button type="submit" class="invoice-generate-btn">
+              <i class="fas fa-file-pdf"></i> Generate Invoice
+            </button>
+          </form>
+        </div>
+
+        <!-- Invoice Preview -->
+        <div class="invoice-preview-card" id="invoice-preview-card">
+          <div class="invoice-preview-header">
+            <h3><i class="fas fa-eye"></i> Invoice Preview</h3>
+            <button class="print-invoice-btn" id="print-invoice-btn" onclick="printInvoice()" style="display:none">
+              <i class="fas fa-print"></i> Print / Save PDF
+            </button>
+          </div>
+          <div id="invoice-preview" class="invoice-preview">
+            <div class="preview-placeholder">
+              <i class="fas fa-file-invoice-dollar"></i>
+              <p>Fill out the form to see your invoice preview here</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Client Portal</h3>
+          <ul>
+            <li><a href="booking.html">Book a Session</a></li>
+            <li><a href="client-gallery.html">Client Gallery</a></li>
+            <li><a href="invoice.html">Invoice Generator</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Stay Updated</h3>
+          <p>Subscribe to our newsletter for photography tips.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email address" required />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 MarveyPixel. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
