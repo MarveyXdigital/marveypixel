@@ -118,7 +118,7 @@ body {
 }
 
 .animate-section {
-  opacity: 0;
+  opacity: 1;
   transform: translateY(40px);
   transition:
     opacity 0.8s ease,
@@ -2398,10 +2398,9 @@ footer {
 
 .footer-content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(4, 1fr);
   max-width: 1200px;
-  margin: 0 auto;
+  padding: 40px;
 }
 
 .footer-section h3 {
@@ -2443,37 +2442,53 @@ footer {
 }
 
 /* NEWSLETTER */
-.newsletter-form {
+.footerform {
   display: flex;
-  gap: 10px;
-  margin: 15px 0;
+  align-items: center;
+  background: white;
+  padding: 6px;
+  border-radius: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border 0.2s ease;
 }
 
-.newsletter-form input {
+.footerform:focus-within {
+  outline: 2px solid rgb(0, 0, 0);
+}
+
+.footerform input {
   flex: 1;
-  padding: 8px 12px;
-  border: 1px solid #555;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-}
-
-.newsletter-form input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.newsletter-form button {
-  padding: 8px 16px;
-  background: #007bff;
-  color: white;
+  background: none;
   border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.3s;
+  outline: none;
+  padding: 10px 14px;
+  font-size: 16px;
+}
+.footerform input::placeholder {
+  color: #7d8b99;
 }
 
-.newsletter-form button:hover {
-  background: #0056b3;
+.footerform button {
+  border: none;
+  background-color: var(--buttons);
+  color: white;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.footerform button:hover {
+  transform: scale(1.05);
+  background-color: rgb(0, 100, 35);
+}
+.footerform button i {
+  font-size: 18px;
 }
 /* FOOTER ICONS */
 .footer-icons {
@@ -2621,6 +2636,7 @@ footer {
   }
 
   .header-contact-btn {
+    display: none;
     padding: 8px 18px;
     font-size: 13px;
   }
